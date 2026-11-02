@@ -36,7 +36,9 @@ jobs:
       - name: Empaquetar IPA
         run: |
           mkdir -p Payload
-          cp -r "build/RafaPanel.xcarchive/Products/Applications/RafaPanel.app" Payload/
+          APP_PATH=$(find build -name "*.app" -type d | head -n 1)
+          echo "App encontrado en: $APP_PATH"
+          cp -r "$APP_PATH" Payload/
           zip -r RafaPanel.ipa Payload
           ls -la RafaPanel.ipa
 
@@ -52,6 +54,7 @@ jobs:
         with:
           tag_name: v1.0.0
           name: "Rafa Panel Free Fire iOS v1.0.0"
+          make_latest: true
           body: |
             ### 🎮 Rafa Panel iOS (Free Fire Launcher + Checkboxes)
             Compilación lista para instalar en iPhone/iPad.
