@@ -3,7 +3,6 @@ options:
   bundleIdPrefix: com.rafa
   deploymentTarget:
     iOS: 15.0
-  compatibilityVersion: "Xcode 15.0"
 targets:
   RafaPanel:
     type: application
